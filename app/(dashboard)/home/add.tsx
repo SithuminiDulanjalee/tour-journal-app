@@ -78,7 +78,7 @@ export default function AddEditEntry() {
     try {
       const uploadedPhotos: string[] = [];
       for (const uri of photos) {
-        uploadedPhotos.push(uri.startsWith('http') ? uri : await uploadPhoto(user.uid, uri));
+        uploadedPhotos.push(uri.startsWith('http') ? uri : await uploadPhoto(uri));
       }
       const entryData: Omit<TravelEntry, 'id'> = {
         userId: user.uid,

@@ -4,13 +4,14 @@ import { router } from 'expo-router';
 import { registerUser } from '@/service/authService';
 
 export default function Register() {
+  const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirm, setConfirm] = useState('');
   const [submitting, setSubmitting] = useState(false);
 
   const handleRegister = async () => {
-    if (!email || !password || !confirm) {
+    if (!fullName || !email || !password || !confirm) {
       Alert.alert('Missing fields', 'Please fill in all fields.');
       return;
     }
@@ -24,7 +25,7 @@ export default function Register() {
     }
     setSubmitting(true);
     try {
-      await registerUser(email.trim(), password);
+      await registerUser(fullName.trim(), email.trim(), password);
       router.replace('/home');
     } catch (e: any) {
       Alert.alert('Registration failed', e.message ?? 'Please try again.');
@@ -38,6 +39,12 @@ export default function Register() {
       <View className="w-full bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
         <Text className="text-3xl font-bold mb-1 text-center text-ink">Create Account</Text>
         <Text className="text-center text-teal mb-6">Start journaling your trips.</Text>
+        <TextInput
+          placeholder="Full Name"
+          className="border border-gray-200 bg-gray-50 p-3 mb-4 rounded-xl"
+          value={fullName}
+          onChangeText={setFullName}
+        />
         <TextInput
           placeholder="Email"
           autoCapitalize="none"

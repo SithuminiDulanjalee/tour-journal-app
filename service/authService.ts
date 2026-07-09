@@ -1,16 +1,35 @@
-import { auth } from './firebase';
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from 'firebase/auth';
+import { auth, db } from "./firebase";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, updateProfile } from "firebase/auth";
+import {doc, setDoc} from "firebase/firestore"
+export const registerUser = async (
+    fullname: string, 
+    email: string, 
+    password: string)=>{
+    const userCredintials = await createUserWithEmailAndPassword(
+        auth, 
+        email, 
+        password
+    )
+    await updateProfile(userCredintials.user, {
+        displayName: fullname
+    })
 
-export const registerUser = async (email: string, password: string) => {
-  const cred = await createUserWithEmailAndPassword(auth, email, password);
-  return cred.user;
-};
+    
+    //firestore(database service)
+    await setDoc(doc(db, "users", userCredintials.user.uid), {
+        name: fullname,
+        email,
+        createAt: new Date()
 
-export const login = async (email: string, password: string) => {
-  const cred = await signInWithEmailAndPassword(auth, email, password);
-  return cred.user;
-};
-
-export const logOut = async () => {
-  await signOut(auth);
-};
+    }); 
+    return userCredintials.user;   
+}
+export const login = async (email: string, password: string)=>{
+    // const userCredintials = await signInWithEmailAndPassword(auth, email, password);
+    // return userCredintials.user;
+    return await signInWithEmailAndPassword(auth, email, password)
+}
+export const logOut = async ()=>{
+    await signOut(auth)
+    return
+}
