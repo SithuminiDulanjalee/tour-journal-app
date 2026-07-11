@@ -13,7 +13,7 @@ export default function EntryDetail() {
   const handleDelete = () => {
     Alert.alert('Delete trip?', 'This cannot be undone.', [
       { text: 'Cancel', style: 'cancel' },
-      { text: 'Delete', style: 'destructive', onPress: async () => { await removeEntry(entry.id!); router.back(); } },
+      { text: 'Delete', style: 'destructive', onPress: async () => { await removeEntry(entry.id!); router.canGoBack() ? router.back() : router.replace('/home'); } },
     ]);
   };
 

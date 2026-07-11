@@ -91,7 +91,7 @@ export default function AddEditEntry() {
       };
       if (existingEntry?.id) await editEntry(existingEntry.id, entryData);
       else await addEntry(entryData);
-      router.back();
+      router.canGoBack() ? router.back() : router.replace('/home');
     } catch (e: any) {
       Alert.alert('Save failed', e.message);
     } finally {
