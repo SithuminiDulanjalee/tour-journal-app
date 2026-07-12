@@ -6,7 +6,7 @@
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "scheme": "tourjournalapp",
-    "userInterfaceStyle": "automatic",
+    "userInterfaceStyle": "light",
     "newArchEnabled": true,
     "ios": {
       "supportsTablet": true
@@ -20,7 +20,11 @@
       },
       "edgeToEdgeEnabled": true,
       "predictiveBackGestureEnabled": false,
-      "package": "com.sithumini2222.tourjournalapp"
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyAeipWp5UbC1BOILTsvv2vMtE6DSs3a67E"
+        }
+      }
     },
     "web": {
       "output": "static",
@@ -41,17 +45,24 @@
         }
       ],
       "@react-native-community/datetimepicker",
-      "expo-font"
+      "expo-font",
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Allow VoyaLink to access your photos to attach them to trip entries.",
+          "cameraPermission": "Allow VoyaLink to access your camera to take trip photos."
+        }
+      ],
+      [
+        "expo-location",
+        {
+          "locationAlwaysAndWhenInUsePermission": "Allow VoyaLink to use your location to tag trip entries."
+        }
+      ]
     ],
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
-    },
-    "extra": {
-      "router": {},
-      "eas": {
-        "projectId": "2a6ffab6-c496-4cd6-bf62-9044bbb55f48"
-      }
     }
   }
 }

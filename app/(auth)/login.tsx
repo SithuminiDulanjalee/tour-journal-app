@@ -1,11 +1,13 @@
 import { View, Text, TextInput, Pressable, Alert, TouchableOpacity, Keyboard, TouchableWithoutFeedback } from 'react-native';
 import { useState } from 'react';
 import { router } from 'expo-router';
+import { Ionicons } from '@expo/vector-icons';
 import { login } from '@/service/authService';
 
 export default function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
   const [submitting, setSubmitting] = useState(false);
 
   const handleLogin = async () => {
@@ -32,19 +34,32 @@ export default function Login() {
           <Text className="text-center text-teal mb-6">Every trip, kept.</Text>
           <TextInput
             placeholder="Email"
+            placeholderTextColor="#9CA3AF"
             autoCapitalize="none"
             keyboardType="email-address"
-            className="border border-gray-200 bg-gray-50 p-3 mb-4 rounded-xl"
+            className="border border-gray-200 bg-gray-50 p-3 mb-4 rounded-xl text-ink"
             value={email}
             onChangeText={setEmail}
           />
-          <TextInput
-            placeholder="Password"
-            secureTextEntry
-            className="border border-gray-200 bg-gray-50 p-3 mb-4 rounded-xl"
-            value={password}
-            onChangeText={setPassword}
-          />
+
+          <View className="relative justify-center mb-4">
+            <TextInput
+              placeholder="Password"
+              placeholderTextColor="#9CA3AF"
+              secureTextEntry={!showPassword}
+              className="border border-gray-200 bg-gray-50 p-3 pr-12 rounded-xl text-ink"
+              value={password}
+              onChangeText={setPassword}
+            />
+            <TouchableOpacity
+              onPress={() => setShowPassword((prev) => !prev)}
+              className="absolute right-3"
+              hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}
+            >
+              <Ionicons name={showPassword ? 'eye-off' : 'eye'} size={20} color="#6B7280" />
+            </TouchableOpacity>
+          </View>
+
           <Pressable
             className="bg-ink px-6 py-3 rounded-2xl"
             onPress={handleLogin}
