@@ -117,11 +117,9 @@ it.
 
 | Login | My Trips | Add Entry | Map |
 |:---:|:---:|:---:|:---:|
-| <img width="765" height="1600" alt="260e1ea1-fe5b-421c-8452-ad2813e93bbc" src="https://github.com/user-attachments/assets/8821284e-51af-451f-be40-d86fc13257f9" /> | <img width="770" height="1600" alt="4a20616e-1e5f-42b8-9ac2-baf34148c7c0" src="https://github.com/user-attachments/assets/0f208660-3127-4eae-933e-bde8f9b45126" /> | <img width="766" height="1600" alt="1a75564f-bee0-4e1d-b146-8f1c94c5a699" src="https://github.com/user-attachments/assets/b7349d9f-a7aa-4847-9bd6-b1dae5e48f95" /> | <img width="738" height="1600" alt="ac6ee11d-353d-4d49-8601-3b36a23f842c" src="https://github.com/user-attachments/assets/eec1612c-4e90-446c-8c71-bcc6d64181f9" /> |
+| <img width="765" height="1600" alt="260e1ea1-fe5b-421c-8452-ad2813e93bbc" src="https://github.com/user-attachments/assets/8821284e-51af-451f-be40-d86fc13257f9" /> | <img width="770" height="1600" alt="4a20616e-1e5f-42b8-9ac2-baf34148c7c0" src="https://github.com/user-attachments/assets/0f208660-3127-4eae-933e-bde8f9b45126" /> | <img width="766" height="1600" alt="1a75564f-bee0-4e1d-b146-8f1c94c5a699" src="https://github.com/user-attachments/assets/b7349d9f-a7aa-4847-9bd6-b1dae5e48f95" /> | <img width="764" height="1600" alt="7a8785e3-b5a0-4316-85b0-daecf6b7bcba" src="https://github.com/user-attachments/assets/482d2327-d550-4ea5-8d28-b89baf7247c1" /> |
 
 </div>
-
-> Replace the placeholders above with real screenshots before final submission — drag images into this table in your GitHub editor and they'll render inline.
 
 ## 🏗️ Architecture
 
